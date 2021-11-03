@@ -17,6 +17,7 @@ class App extends React.Component {
 
     this.handleButtonClick = this.handleButtonClick.bind(this)
     this.addItem = this.addItem.bind(this)
+    this.removeItem = this.removeItem.bind(this)
   }
 
   handleButtonClick(tab) {
@@ -30,6 +31,13 @@ class App extends React.Component {
     }
 
     this.setState({ items: [item, ...this.state.items]})
+  }
+
+  removeItem(index) {
+    const newItemsList = this.state.items
+
+    newItemsList.splice(index, 1)
+    this.setState({ items: newItemsList})
   }
   
   render() {
@@ -51,7 +59,7 @@ class App extends React.Component {
           isSelected={this.state.activeTab === "Pay"}
         />
         {this.state.activeTab === "Add" && <Add addItem={this.addItem}/>}
-        {this.state.activeTab === "List" && <List />}
+        {this.state.activeTab === "List" && <List items={this.state.items} removeItem={this.removeItem}/>}
         {this.state.activeTab === "Pay" && <Pay />}
       </div>
     )

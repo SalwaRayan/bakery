@@ -25,7 +25,7 @@ class Add extends Component {
   render() {
     return (
       <div>
-        <h1>Add</h1>
+        <h1 className="mb-5">Add</h1>
         <div className="d-flex align-items-center">
             <input 
               type="text"
