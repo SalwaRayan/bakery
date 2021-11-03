@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React  from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Button from './components/Button'
+import Add from './components/Add'
+import List from './components/List'
+import Pay from './components/Pay'
+
+class App extends React.Component {
+  constructor() {
+    super()
+
+    this.state = {
+      activeTab: "Add",
+      items: [],
+    }
+
+    this.handleButtonClick = this.handleButtonClick.bind(this)
+
+  }
+
+  handleButtonClick(tab) {
+    this.setState({ activeTab: tab })
+  }
+  
+  render() {
+    return (
+      <div className="container">
+        <Button 
+          children="Add"
+          handleClick={this.handleButtonClick}
+          isSelected={this.state.activeTab === "Add"}
+        />
+        <Button 
+          children="List"
+          handleClick={this.handleButtonClick}
+          isSelected={this.state.activeTab === "List"}
+          />
+        <Button 
+          children="Pay"
+          handleClick={this.handleButtonClick}
+          isSelected={this.state.activeTab === "Pay"}
+        />
+        {this.state.activeTab === "Add" && <Add />}
+        {this.state.activeTab === "List" && <List />}
+        {this.state.activeTab === "Pay" && <Pay />}
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
