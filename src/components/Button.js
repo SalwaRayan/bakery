@@ -9,7 +9,7 @@ class Button extends React.Component {
         <button 
           className={`
             btn btn-outline-dark  m-3
-            ${isSelected && "bg-primary"}
+            ${isSelected && "bg-info"}
           `}
           onClick={() => handleClick(children)}
         >

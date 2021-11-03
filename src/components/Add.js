@@ -39,7 +39,12 @@ class Add extends Component {
               onChange={this.handlePriceChange}
             />
             <span>{this.state.price}</span>
-            <button className="btn btn-success ms-5" onClick={() => this.props.addItem(this.state.name, this.state.price)}>Add</button>
+            <button 
+              className="btn btn-success ms-5" 
+              onClick={() => this.props.addItem(this.state.name, this.state.price)}
+            >
+              Add
+            </button>
         </div>
       </div>
     );
