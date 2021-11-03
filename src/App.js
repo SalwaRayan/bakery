@@ -16,21 +16,11 @@ class App extends React.Component {
     }
 
     this.handleButtonClick = this.handleButtonClick.bind(this)
-    this.handleButtonClick = this.addItem.bind(this)
 
   }
 
   handleButtonClick(tab) {
     this.setState({ activeTab: tab })
-  }
-
-  addItem(name, price) {
-    const item = {
-      name,
-      price
-    }
-    this.setState({ items: [item, ...this.state.items]})
-    console.log(name, price)
   }
   
   render() {
@@ -53,7 +43,7 @@ class App extends React.Component {
           handleClick={this.handleButtonClick}
           isSelected={this.state.activeTab === "Pay"}
         />
-        {this.state.activeTab === "Add" && <Add addItem={this.addItem}/>}
+        {this.state.activeTab === "Add" && <Add />}
         {this.state.activeTab === "List" && <List />}
         {this.state.activeTab === "Pay" && <Pay />}
       </div>
