@@ -4,6 +4,8 @@ class Button extends React.Component {
   render() {
     const { handleClick, children, isSelected } = this.props
 
+    console.log("this.props di Button :", this.props)
+
     return (
       <>
         <button 
