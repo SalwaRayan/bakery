@@ -30,13 +30,15 @@ class Add extends Component {
             <input 
               type="text"
               onChange={this.handleNameChange}
-            />
+              value={this.state.name}
+              />
             <input 
               className="mx-4"
               type="range"
               min={1}
               max={10}
               onChange={this.handlePriceChange}
+              value={this.state.price}
             />
             <span>{this.state.price}</span>
             <button 
